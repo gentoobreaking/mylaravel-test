@@ -1,0 +1,6 @@
+
+1. docker-compose up -d
+2. docker-compose ps
+3. ./post-steps.sh
+4. ./debug.sh
+

@@ -1,0 +1,28 @@
+web:
+    image: mylaravel:v0.2
+    container_name: web
+    ports:
+        - 80:80
+    volumes:
+        - ./www:/var/www
+        - ./log:/var/log
+    # If you don't want to use default 'artisan serve' command, edit and uncomment the line below.
+    # command: php -S 0.0.0.0:80 -t public public/index.php
+    links:
+        - db
+    environment:
+        DB_HOST: db
+        DB_DATABASE: webdb
+        DB_USERNAME: admin
+        DB_PASSWORD: admin
+        DB_CONNECTION: mysql
+db:
+    image: mysql:5.7
+    container_name: db-mysql
+    environment:
+        # with mysql
+        MYSQL_ROOT_PASSWORD: mypassword
+        MYSQL_DATABASE: webdb
+        MYSQL_USER: admin
+        MYSQL_PASSWORD: admin
+
