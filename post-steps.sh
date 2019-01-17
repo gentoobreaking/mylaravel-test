@@ -9,6 +9,8 @@ cd /var/www/
 composer install
 php artisan cache:clear
 php artisan migrate:fresh
+echo " - clear cache."
+rm -rf /var/www/resources/reactViews/themes/default/src/modules/*
 npm install
 npm run prod
 EOF
